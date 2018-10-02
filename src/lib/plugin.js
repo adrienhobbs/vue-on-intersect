@@ -1,4 +1,3 @@
-import * as Components from './index'
 import Vue from 'vue'
 import observer from './observer'
 
@@ -9,11 +8,6 @@ const VueIntersectPlugin = {
         observer.observe({ elm, ...binding.value, vnode })
       }
     })
-    Object.keys(Components)
-      .filter(componentName => componentName !== 'default')
-      .forEach(componentName => {
-        Vue.component(componentName, Components[componentName])
-      })
   }
 }
 
