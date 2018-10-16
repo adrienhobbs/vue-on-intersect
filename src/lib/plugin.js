@@ -1,8 +1,7 @@
-import Vue from 'vue'
 import observer from './observer'
 
 export default {
-  install: function() {
+  install: function(Vue) {
     Vue.directive('on-intersect', {
       bind(elm, binding, vnode) {
         observer.observe({ elm, ...binding.value, vnode })
