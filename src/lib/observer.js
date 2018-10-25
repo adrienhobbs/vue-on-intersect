@@ -1,4 +1,5 @@
 import ObserverItem from './observer-item'
+const uuidv4 = require('uuid/v4')
 
 const Observer = (function() {
   const items = []
@@ -18,7 +19,7 @@ const Observer = (function() {
   // updates an observer item with current observer props
   const handleUpdate = entries => {
     entries.forEach(entry => {
-      const item = items.filter(item => item.elm === entry.target)[0]
+      const item = items.filter(item => item.id === entry.target.dataset.id)[0]
       item.update(entry)
     })
   }
@@ -49,11 +50,17 @@ const Observer = (function() {
       Observers[rootMargin] || createObserver(rootMargin, threshold)
     Observers[rootMargin].observe(elm)
 
+    const uid = uuidv4()
+
     newItem.once = once
     newItem.elm = elm
-    newItem.observer = Observers[rootMargin]
-    newItem.vnode = vnode
+    elm.dataset.id = uid
 
+    newItem.observer = Observers[rootMargin]
+    newItem.id = uid
+    vnode.context.uuid = uid
+
+    newItem.vnode = vnode
     items.push(newItem)
   }
 

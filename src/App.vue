@@ -5,6 +5,10 @@
            :key="i">
         <MyComponent />
       </div>
+      <observe>
+        <SlotScopeExample slot-scope="observe"
+                          v-bind="observe" />
+      </observe>
     </div>
     <div class="trigger top"></div>
     <div class="trigger bottom"></div>
@@ -14,10 +18,12 @@
 <script>
 
 import MyComponent from './examples/MyComponent'
+import SlotScopeExample from './examples/SlotScopeExample'
+import Observe from './lib/Observe'
 
 export default {
   name: 'app',
-  components: {MyComponent},
+  components: {MyComponent, Observe, SlotScopeExample},
   data() {
     return {
       numItems: 10
