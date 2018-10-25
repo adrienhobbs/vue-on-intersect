@@ -1,7 +1,7 @@
 # Vue-On-Intersect
 
 ** IN DEVELOPMENT **
-Easily observe changes in an elements viewport location.
+Easily observe changes in an element's viewport location.
 Reuses observers, if multiple elements share the same offset for improved performance.
 
 Designed to help you improve performance and integrate interactivity in response to an element's position on the page.
