@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: 'MyComponent',
+  name: "MyComponent",
   data() {
     return {
       once: false,
@@ -47,11 +47,11 @@ export default {
       intersectionRatio: null,
       isAbove: null,
       isBelow: null,
-      topOffset: '-20%',
-      bottomOffset: '-20%'
-    }
+      topOffset: "-20%",
+      bottomOffset: "-20%"
+    };
   }
-}
+};
 </script>
 
 <style>

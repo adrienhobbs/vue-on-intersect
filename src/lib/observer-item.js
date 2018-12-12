@@ -33,17 +33,19 @@ export default {
     return this.entry.intersectionRatio
   },
   copyPropsToVnode() {
-    [
-      'rect',
-      'isAbove',
-      'isBelow',
-      'isPartiallyAbove',
-      'isPartiallyBelow',
-      'isIntersecting',
-      'intersectionRatio'
-    ].forEach(prop => {
-      this.vnode.context[prop] = this[prop]
-    })
+    if (this.entry.rootBounds) {
+      [
+        'rect',
+        'isAbove',
+        'isBelow',
+        'isPartiallyAbove',
+        'isPartiallyBelow',
+        'isIntersecting',
+        'intersectionRatio'
+      ].forEach(prop => {
+        this.vnode.context[prop] = this[prop]
+      })
+    }
   },
   update(entry) {
     this.entry = entry
